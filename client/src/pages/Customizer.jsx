@@ -30,6 +30,14 @@ const Customizer = () => {
     stylishShirt: false,
   });
 
+  const handleTabClick = (tabName) => {
+    if (activeEditorTab === tabName) {
+      setActiveEditorTab("");
+    } else {
+      setActiveEditorTab(tabName);
+    }
+  };
+
   const generateTabContent = () => {
     switch (activeEditorTab) {
       case "colorpicker":
@@ -129,7 +137,7 @@ const Customizer = () => {
                     key={tab.name}
                     tab={tab}
                     handleClick={() => {
-                      setActiveEditorTab(tab.name);
+                      handleTabClick(tab.name);
                     }}
                   />
                 ))}
